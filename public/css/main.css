@@ -1,0 +1,37 @@
+
+.flip-container {
+        margin: 2px;
+        perspective: 1000;
+        display: inline-block;
+    }
+    .flip-container:hover .back {
+        transform: rotateY(180deg);
+    }
+    .flip-container:hover .front {
+        transform: rotateY(0deg);
+    }
+    .flip-container, .front, .back {
+        width: 400px;
+        height: 400px;
+    }
+    .card {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    .front, .back {
+        position: absolute;
+        backface-visibility: hidden;
+        transition: 0.6s;
+        transform-style: preserve-3d;
+    }
+    .front {
+        z-index: 1;
+        transform: rotateY(-180deg);
+       
+    }
+    .back {
+        z-index: 2;
+        transform: rotateY(0deg);
+        
+    }

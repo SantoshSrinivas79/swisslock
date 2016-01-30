@@ -1,0 +1,26 @@
+{
+  "name": "swisslock",
+  "description": "Hackathon",
+  "main": "index.js",
+  "authors": [
+    "NXT"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "hack"
+  ],
+  "homepage": "https://github.com/AspireToCodeBetter/swisslock",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "modernizr": "~3.3.1"
+  }
+}

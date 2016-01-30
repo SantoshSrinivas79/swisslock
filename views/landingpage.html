@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Swiss Re Hackathon</title>
+<link href="css/landingstyle.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/bootstrap.min.css" rel="stylesheet"> 
+<meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
+
+</head>
+<body>
+<div class="black"></div>
+<div id="wrapper">
+    <div class="container">    
+        <div id="loginbox" style="margin-top:50px;opacity:0.85;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Swiss Re App</div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="loginform" class="form-horizontal" role="form">
+                            <div class="form-group">
+							    <label for="domain">Domain</label>
+							    <input type="text" class="form-control" id="domain" placeholder="I want to open an restaraunt">
+						    </div>
+							<div class="form-group">
+							    <label for="Location">Location</label>
+							    <input type="text" class="form-control" id="loaction" placeholder="Enter location">
+							</div>
+                        </form> 
+                        <center>
+                        	<button class="btn btn-primary" id="proceed">Proceed</button>
+                        </center>    
+                    </div>                     
+                </div>  
+        </div>
+    </div>
+    
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+ <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+ <style type="text/css">
+.form-control{
+	width:90%;
+}
+.form-horizontal .form-group {
+    margin-left: 30px;
+   
+}
+ </style>
+ <script type="text/javascript">
+        document.getElementById("proceed").onclick = function () {
+        location.href = "dashboard.html";
+    };
+ </script>
+</body>
+</html>

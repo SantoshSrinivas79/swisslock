@@ -1,21 +1,32 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var yelp = require('./yelp')
-var twitter = require('./twitter_api')
+var dashboard = require('./dashboard/dashboard.js');
+var logger = require('morgan')
+var path = require('path')
 var app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended : true
 }))
+var rootPath = path.normalize(__dirname)
+app.use(express.static(rootPath + '/public'));
+app.set('views', rootPath + '/views');
 app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
-app.set('views', __dirname + '/views')
-app.get('/', function(req, res) {
-	res.render('index.html');
-})
-app.get('/yelp', yelp.yelpRating)
-app.get('/twitter', twitter.twitterData)
+app.use(logger('dev'));
 
-app.listen(3000)
-console.log("hello")
+app.post('/dashboard', dashboard.yelpRating);
+
+app.get('/', function(req, res) {
+	res.render('index');
+});
+
+app.get('/demo', function(req, res) {
+	res.render('demo');
+});
+
+app.get('*', function(req, res) {
+	res.render('index')
+})
+var port = 3000 || process.env.port
+app.listen(port);
+console.log("app is listening at " + port)
