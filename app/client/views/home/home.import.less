@@ -1,0 +1,85 @@
+@home-intro-bg: url(img/background-intro.jpg);
+@home-colored-section-bg: @gray-lighter;
+@home-colored-section-color: black;
+
+.home-layout
+{
+  nav.navbar
+  {
+    width: 100%;
+    z-index: 1000;
+    a
+    {
+      color: white;
+      &:hover
+      {
+        text-decoration: none;
+        background: inherit;
+      }
+      &.btn-hollow
+      {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+    ul
+    {
+      list-style: none;
+      padding-top: 2px;
+      li
+      {
+        padding-left: 10px;
+        display: inline-block;
+        padding-right: 5px;
+      }
+    }
+  }
+  section
+  {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    &.colored
+    {
+      background: @home-colored-section-bg;
+      color: @home-colored-section-color;
+    }
+  }
+  section#intro
+  {
+    background: @home-intro-bg;
+    color: white;
+    h1
+    {
+      padding-top: 100px;
+    }
+    a.btn
+    {
+      margin-top: 20px;
+      color: white;
+    }
+  }
+  section#how-it-works 
+  {
+    .fa 
+    {
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+  }
+  section#ipad 
+  {
+    padding-bottom: 0 !important;
+    overflow-x: hidden;
+    h3 {
+        padding-top: 100px;
+    }
+  }
+  section#final 
+  {
+    padding-bottom: 0;
+    .btn 
+    {
+      margin-top: 20px;
+    }
+  }
+}
