@@ -37,6 +37,9 @@ app.get('/demo', function(req, res) {
 app.get('*', function(req, res) {
 	res.render('index')
 })
-var port = 3000 || process.env.port
+
+var port = (process.env.VCAP_APP_PORT || 3000);
+var host = (process.env.VCAP_APP_HOST || 'localhost');
+
 app.listen(port);
 console.log("app is listening at " + port)
