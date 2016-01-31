@@ -4,6 +4,7 @@ var dashboard = require('./dashboard/dashboard.js');
 var logger = require('morgan')
 var path = require('path')
 var quandl = require('./quandl')
+var ibmTwitter = require('./ibm_twitter_insights.js')
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -18,6 +19,9 @@ app.use(logger('dev'));
 app.post('/dashboard', dashboard.yelpRating);
 
 app.get('/quandl', quandl.getPriceScore);
+
+app.get('/getSentiment', ibmTwitter.getSentiment);
+app.get('/getTweets', ibmTwitter.getTweets);
 
 app.get('/', function(req, res) {
 	res.render('index');
