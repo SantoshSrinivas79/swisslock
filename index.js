@@ -15,6 +15,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 
 app.post('/dashboard', dashboard.yelpRating);
+app.get('/alchemy', dashboard.alchemyRating);
 
 app.get('/', function(req, res) {
 	res.render('index');

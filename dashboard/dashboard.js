@@ -1,6 +1,7 @@
 var Yelp = require('yelp');
 var Twit = require('twitter');
 var async = require('async');
+var request = require('request');
 
 exports.twitterData = function(req, res) {
   var T = new Twit({
@@ -42,10 +43,12 @@ var yelp = new Yelp({
   token: 'fjQiRFcbiAkKGNE-kU7WUx5iTUVkfr6i',
   token_secret: 'BYfr-MjXC8giSi1n8ppZnwVelBI'
 });
-
-var location = req.body.domain;
-var cuisine = req.body.cuisine;
-yelp.search({ term: 'Restaurants, ' + cuisine + ', All', location: 'San Jose' })
+console.log(req.body)
+var location = req.body.location;
+var domain = req.body.domain;
+var query = { term: 'Restaurants, ' + domain + ', All', location: location };
+console.log(query)
+yelp.search(query)
 .then(function (data) {
   var score, ratings=0, reviews=0, competition, weighted_rating=0, rating_average, weighted_rating_average;
   for(var i = 0; i < data.businesses.length; i++) {
@@ -65,9 +68,21 @@ yelp.search({ term: 'Restaurants, ' + cuisine + ', All', location: 'San Jose' })
   console.log(weighted_rating_average)
   competition = rating_average + weighted_rating_average;
   console.log(competition)
-  return res.render("dashboard", {competition: competition})
+  return res.render("dashboard", {competition: competition, total_score : 3.0})
 })
 .catch(function (err) {
   console.error(err);
   return res.end(err);
 });}
+
+exports.alchemyRating = function(req, res) {
+  var url = 'https://a08d02d8-2432-45b2-a540-b1e982dedcb1:RCFIOmQxdU@cdeservice.mybluemix.net:443/api/v1/messages/count?q=%28posted:2015-02-01T00:00:00Z,2015-02-15T00:00:00Z AND %23IBM%29"'
+  request(url, function (err, response, body) {
+  if (!err && response.statusCode == 200) {
+    console.log(body) // Show the HTML for the Google homepage. 
+    return res.json(body)
+  }
+  if(err) return res.end(err.toString())
+    console.log(res.statusCode)
+})
+}

@@ -59,15 +59,20 @@
                 
             </div>
              <div class="progress">
-  <div class="progress-bar progress-bar-danger" role="progressbar" style="width:30%">
-    Risky
-  </div>
-  <div class="progress-bar progress-bar-warning" role="progressbar" style="width:35%">
-    Medium Risk
-  </div>
-  <div class="progress-bar progress-bar-success" role="progressbar" style="width:35%">
-    Go for It!
-  </div>
+    <% if(total_score <= 3.3)   { %>
+          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:<%=total_score*10 %>%">
+            Risky
+          </div>
+    <% } else if(total_score <= 6.6) { %>
+          <div class="progress-bar progress-bar-warning" role="progressbar" style="width:<%=total_score*10 %>%">
+            Medium Risk
+          </div>
+    <% } else { %>
+          <div class="progress-bar progress-bar-success" role="progressbar" style="width:<%=total_score*10 %>%">
+            Go for It!
+          </div>
+    <% } %>
+    <h2><%=total_score%>/10</h2>
 </div>
             <div class="row">
                 <div class="col-lg-6">
@@ -108,7 +113,7 @@
                                         </div>
                                         <div class="back">
                                             <!-- front content -->
-                                            <h2><%=Math.floor(competition)%>/10</h2>
+                                            <h2><%=(competition>5)? parseFloat( ((10 - competition) * 2).toFixed(1) ): 9.5 %>/10</h2>
                                         </div>
                                     </div>     
                             </div>
