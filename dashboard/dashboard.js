@@ -246,7 +246,7 @@ exports.yelpRating = function(req, res) {
             console.log("The results are");
             console.log(results);
 
-            var sentimentScore = (results.positive / results.all)*(5);
+            var sentimentScore = (results.positive / results.all)*(10);
             console.log("The sentiment score is: " + Math.round(sentimentScore));
             sentimentScore = Math.round(sentimentScore);
             return callback(null, sentimentScore);

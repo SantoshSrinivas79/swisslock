@@ -13,8 +13,8 @@
         
         <link href="css/bootstrap.min.css" rel="stylesheet"> 
         <link href="css/font-awesome.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/main.css" media="screen" type="text/css"/>
-        <!-- Custom CSS -->
+<!--         <link rel="stylesheet" href="css/main.css" media="screen" type="text/css"/>
+ -->        <!-- Custom CSS -->
         <link href="css/sb-admin-2.css" rel="stylesheet">
 </head>
 
@@ -49,7 +49,6 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -58,6 +57,8 @@
                 <!-- /.col-lg-12 -->
                 
             </div>
+            <div class="row">
+    <h2>Overall Risk Quotient: <%=total_score.toFixed(1) %>/10</h2></div>
              <div class="progress">
     <% if(total_score <= 3.3)   { %>
           <div class="progress-bar progress-bar-danger" role="progressbar" style="width:<%=total_score*10 %>%">
@@ -72,16 +73,16 @@
             Go for It!
           </div>
     <% } %>
-    <h2><%=total_score %>/10</h2>
+
 </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             Demand
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="panel-body" style="height:300px;">
                             <div class="flot-chart">
                                 <div class="flip-container">
                                     <div class="card">
@@ -89,28 +90,8 @@
                                         <div class="front">
                                             <!-- back content -->
                                             <h2> 
-                                            <% if(demand <= 3.3)   { %>
-
-A low demand is expected for this value of score. And the risk that you might have 
-
-to take is pretty high :(
-
-<% } else if(demand <= 6.6)   { %>
-
-Some demand may be expected for this score. And the risk that you might have to 
-
-take are reasonable. But one may be able to overcome this by certain amount of 
-
-effort to create the need for this kind of a product in this place :|
-
-<% } else  { %>
-
-High demand could be expected for this product in the market that you are looking 
-
-for. Go for it :)
-<% } %>
 </h2><br>
-                                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button>
+                                            <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button> -->
                                              <!-- <div class="container"> -->
                                                 <div class="modal fade" id="myModal" role="dialog">
                                                     <div class="modal-dialog">
@@ -134,7 +115,7 @@ for. Go for it :)
                                         </div>
                                         <div class="back">
                                             <!-- front content -->
-                                            <h2><%=demand*1.89.toFixed(1) %>/10</h2>
+                                            <h2><%=demand %>/10</h2>
                                         </div>
                                     </div>     
                             </div>
@@ -144,12 +125,12 @@ for. Go for it :)
                     <!-- /.panel -->
                 </div>
                 <div class="col-lg-6">
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             Cost
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="panel-body"  style="height:300px;">
                            <div class="flot-chart">
                                 <div class="flip-container">
                                     <div class="card">
@@ -157,22 +138,9 @@ for. Go for it :)
                                         <div class="front">
                                             <!-- back content -->
                                             <h2>
-<%  if(cost <= 3.3)   { %>
-The expenses which you might incur for running this kind of a business in this 
-
-location are pretty high :(
-
-<% } else if(cost <= 6.6)   { %>
-Expenses required for running a business of this kind are a bit high for this region 
-
-<% } else { %>
-From an expenses point of view this place is quite an affordable one, and the cost 
-
-of raw materials too aren't that high here :)
-<% } %>
                                             </h2> <br>
-                                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button>
-                                             <!-- <div class="container"> -->
+<!--                                             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button>
+ -->                                             <!-- <div class="container"> -->
                                                 <div class="modal fade" id="myModal" role="dialog">
                                                     <div class="modal-dialog">
                                                     
@@ -205,12 +173,12 @@ of raw materials too aren't that high here :)
                     <!-- /.panel -->
                 </div>
                 <div class="col-lg-6">
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                            Safety
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="panel-body"  style="height:300px;">
                             <div class="flot-chart">
                                     <div class="flip-container">
                                     <div class="card">
@@ -218,26 +186,11 @@ of raw materials too aren't that high here :)
                                         <div class="front">
                                             <!-- back content -->
                                             <h2>
-                                                
-<% }if(cost <= 3.3)   { %>
-This score indicates that it is very unsafe to start this kind of a product in this 
-
-market due to unstable situations that one might experience in this place :(
-
-<% } else if(cost <= 6.6)   { %>
-This indicates that this place is a bit unsafe but manageable taking certain 
-
-measures perhaps :|
-
-<% } else { %>
-This is a safe place to launch a business of this kind, and you shall not experience 
-
-any untoward incidents here :)
-<% }  %>
+                                        
                                             </h2>
 
-                                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button>
-                                             <!-- <div class="container"> -->
+<!--                                             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button>
+ -->                                             <!-- <div class="container"> -->
                                                 <div class="modal fade" id="myModal" role="dialog">
                                                     <div class="modal-dialog">
                                                     
@@ -260,7 +213,7 @@ any untoward incidents here :)
                                         </div>
                                         <div class="back">
                                             <!-- front content -->
-                                            <h2><%=safety*1.89.toFixed(1) %>/10</h2>
+                                            <h2><%=safety %>/10</h2>
                                         </div>
                                     </div> 
                             </div>
@@ -270,37 +223,20 @@ any untoward incidents here :)
                     <!-- /.panel -->
                 </div>
                 <div class="col-lg-6" >
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             Competition
                         </div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
+                        <div class="panel-body"  style="height:300px;">
                             <div class="flot-chart">
                                <div class="flip-container">
                                     <div class="card">
                                         
                                         <div class="front">
-                                            <!-- back content --><h2>
-                                            
-<%  if(competitionObj.competition <= 3.3)   { %>
 
-You might experience a very high competition for this kind of a product in this 
-
-region :(
-
-<% } else  if(competitionObj.competition <= 6.6)   { %>
-
-Some competition shall be experienced for this kind of a product in this region :|
-
-<% } else   { %>
-
-The market is greenfield for you to launch this kind of a product, and the business 
-
-could have high returns :)
-<%  } %></h2><br>
-                                            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button>
-                                             <!-- <div class="container"> -->
+<!--                                             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">More</button>
+ -->                                             <!-- <div class="container"> -->
                                                 <div class="modal fade" id="myModal" role="dialog">
                                                     <div class="modal-dialog">
                                                     
