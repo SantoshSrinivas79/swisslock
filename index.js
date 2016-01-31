@@ -4,6 +4,8 @@ var dashboard = require('./dashboard/dashboard.js');
 var logger = require('morgan')
 var path = require('path')
 var quandl = require('./quandl')
+var ibmTwitter = require('./ibm_twitter_insights.js')
+var ibmTwitterCrime = require('./ibm_twitter_crime_insights.js')
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
