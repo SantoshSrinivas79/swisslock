@@ -5,6 +5,7 @@ var logger = require('morgan')
 var path = require('path')
 var quandl = require('./quandl')
 var ibmTwitter = require('./ibm_twitter_insights.js')
+var ibmTwitterCrime = require('./ibm_twitter_crime_insights.js')
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -22,6 +23,7 @@ app.get('/quandl', quandl.getPriceScore);
 
 app.get('/getSentiment', ibmTwitter.getSentiment);
 app.get('/getTweets', ibmTwitter.getTweets);
+app.get('/getCrimeSentiment', ibmTwitterCrime.getCrimeSentiment);
 
 app.get('/', function(req, res) {
 	res.render('index');
