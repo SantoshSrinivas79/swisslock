@@ -113,7 +113,7 @@
                                         </div>
                                         <div class="back">
                                             <!-- front content -->
-                                            <h2><%=(competition>5)? parseFloat( ((10 - competition) * 2).toFixed(1) ): 9.5 %>/10</h2>
+                                            This needs to be done
                                         </div>
                                     </div>     
                             </div>
@@ -160,7 +160,7 @@
                                         </div>
                                         <div class="back">
                                             <!-- front content -->
-                                            Hover on the text to see the flip
+                                            <h2><%=cost*1.89.toFixed(1) %>/10</h2>
                                         </div>
                                     </div>    
                             </div> 
@@ -242,7 +242,16 @@
                                                           <h4 class="modal-title">Modal Header</h4>
                                                         </div>
                                                         <div class="modal-body">
-                                                          <p>Some text in the modal.</p>
+                                                          <p>
+                                                            <ul>
+                                                            <% for(var i=0; i<competitionObj.competitors.length
+                                                            ; i++) {%>
+                                                                <li><h3><%=competitionObj.competitors[i].name %></h3><br />
+                                                                    <h4><%=competitionObj.competitors[i].ratings %>/5</h4>
+                                                                </li>
+                                                            <%} %>
+                                                            </ul>
+                                                          </p>
                                                         </div>
                                                         <div class="modal-footer">
                                                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -253,8 +262,7 @@
                                             </div>
                                         </div>
                                         <div class="back">
-                                            <!-- front content -->
-                                            Hover on the text to see the flip
+                                            <h2><%=(competitionObj.competition>5)? parseFloat( ((10 - competitionObj.competition) * 2).toFixed(1) ): 9.5 %>/10</h2>
                                         </div>
                                     </div>
                               </div>
@@ -282,6 +290,12 @@
     width: 350px;
 }
 </style>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+</script>
 
 </body>
 

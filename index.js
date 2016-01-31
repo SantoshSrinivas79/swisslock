@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var dashboard = require('./dashboard/dashboard.js');
 var logger = require('morgan')
 var path = require('path')
+var quandl = require('./quandl')
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -15,7 +16,6 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 
 app.post('/dashboard', dashboard.yelpRating);
-app.get('/alchemy', dashboard.alchemyRating);
 
 app.get('/', function(req, res) {
 	res.render('index');
@@ -24,6 +24,7 @@ app.get('/', function(req, res) {
 app.get('/demo', function(req, res) {
 	res.render('demo');
 });
+
 
 app.get('*', function(req, res) {
 	res.render('index')

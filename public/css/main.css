@@ -12,7 +12,7 @@
     }
     .flip-container, .front, .back {
         width: 400px;
-        height: 400px;
+        height: 260px;
     }
     .card {
         transition: 0.6s;
