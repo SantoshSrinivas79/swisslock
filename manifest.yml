@@ -1,0 +1,4 @@
+host: prune
+name: prune
+domain: mybluemix.net
+path: .
